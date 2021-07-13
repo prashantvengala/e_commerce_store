@@ -15,11 +15,10 @@ function App() {
     fetchProducts();
   }, []);
 
-  console.log(products);
   return (
     <div className="App">
       <Navbar />
-      <Products />
+      <Products products={products} />
     </div>
   );
 }
