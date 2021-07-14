@@ -10,8 +10,14 @@ import {
 
 import useStyles from "./style";
 
-const CarItem = () => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const classes = useStyles();
+
+  const handleUpdateCartQty = (lineItemId, newQuantity) =>
+    onUpdateCartQty(lineItemId, newQuantity);
+
+  const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
+
   return (
     <Card className="cart-item">
       <CardMedia
@@ -56,4 +62,4 @@ const CarItem = () => {
   );
 };
 
-export default CarItem;
+export default CartItem;
