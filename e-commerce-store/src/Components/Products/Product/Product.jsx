@@ -37,6 +37,7 @@ const Product = ({ product, onAddToCart }) => {
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
           <IconButton
+            color="primary"
             aria-label="Add To Cart"
             onClick={() => onAddToCart(product.id, 1)}
           >
