@@ -19,11 +19,20 @@ const logo = {
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
+
+  const location = useLocation();
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography variant="h5" className={classes.title} color="inherit">
+          <Typography
+            component={Link}
+            to="/"
+            variant="h5"
+            className={classes.title}
+            color="inherit"
+          >
             <img
               src={logo.logoIcon}
               alt="e-commerce-store"
@@ -34,11 +43,18 @@ const Navbar = ({ totalItems }) => {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.button}>
-            <IconButton aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="secondary">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
+            {location.pathname === "/" && (
+              <IconButton
+                component={Link}
+                to="/cart"
+                aria-label="Show cart items"
+                color="inherit"
+              >
+                <Badge badgeContent={totalItems} color="secondary">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            )}
           </div>
         </Toolbar>
       </AppBar>
